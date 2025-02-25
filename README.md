@@ -1,1 +1,1 @@
-# System-Rekrutacyjny-Do-Szkoly-3BT-KP
+Aktualne pliki i zmiany znajdują się w branchu master
