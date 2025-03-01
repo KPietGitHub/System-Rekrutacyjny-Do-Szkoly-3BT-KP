@@ -1,9 +1,9 @@
 import java.time.LocalDate;
 
 public class Application {
-    Candidate candidate;
-    LocalDate submissionDate;
-    ApplicationStatus status;
+    private Candidate candidate;
+    private LocalDate submissionDate;
+    private ApplicationStatus status;
 
     public Application(Candidate candidate) {
         this.candidate = candidate;
@@ -13,6 +13,30 @@ public class Application {
 
     public void updateStatus(ApplicationStatus newStatus) {
         this.status = newStatus;
+    }
+
+    public Candidate getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(Candidate candidate) {
+        this.candidate = candidate;
+    }
+
+    public LocalDate getSubmissionDate() {
+        return submissionDate;
+    }
+
+    public void setSubmissionDate(LocalDate submissionDate) {
+        this.submissionDate = submissionDate;
+    }
+
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApplicationStatus status) {
+        this.status = status;
     }
 
     @Override
