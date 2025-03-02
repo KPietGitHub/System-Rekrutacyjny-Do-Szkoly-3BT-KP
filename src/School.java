@@ -21,14 +21,13 @@ public class School {
         }
     }
 
-    public void generateReport() {
-        System.out.println("\nSchool Report:");
-        for (Candidate candidate : candidates) {
-            int totalScore = 0;
-            for (Score score : candidate.getScores()) {
-                totalScore += score.getPoints();
+    public void generateAcceptedCandidatesReport() {
+        System.out.println("\nAccepted Candidates Report:");
+        for (Application application : applications) {
+            if (application.getStatus() == ApplicationStatus.ACCEPTED) {
+                Candidate candidate = application.getCandidate();
+                System.out.println(candidate.getFirstName() + " " + candidate.getLastName());
             }
-            System.out.println(candidate.getFirstName() + " " + candidate.getLastName() + " - Total Score: " + totalScore);
         }
     }
 
@@ -42,6 +41,14 @@ public class School {
             if (totalScore >= threshold) {
                 System.out.println(candidate.getFirstName() + " " + candidate.getLastName() + " - Total Score: " + totalScore);
             }
+        }
+    }
+    public void viewApplicationHistory() {
+        System.out.println("\nApplication History:");
+        for (Application application : applications) {
+            System.out.println("Candidate: " + application.getCandidate().getFirstName() + " " + application.getCandidate().getLastName());
+            System.out.println("Status History: " + application.getStatusHistory());
+            System.out.println("------------------------");
         }
     }
     public List<Candidate> getCandidates() {
