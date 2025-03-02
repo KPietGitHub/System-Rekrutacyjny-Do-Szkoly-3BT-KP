@@ -1,16 +1,24 @@
+package utilities;
+
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Message {
     private String sender;
     private String recipient;
     private String content;
+    private String timestamp;
 
     public Message(String sender, String recipient, String content) {
         this.sender = sender;
         this.recipient = recipient;
         this.content = content;
+        this.timestamp = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
     }
 
     public void displayMessage() {
-        System.out.println(sender + " -> " + recipient + ": " + content);
+        System.out.println("[" + timestamp + "] From: " + sender + " To: " + recipient);
+        System.out.println("Message: " + content);
     }
 
     public String getSender() {

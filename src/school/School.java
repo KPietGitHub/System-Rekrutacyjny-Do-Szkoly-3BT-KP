@@ -1,3 +1,10 @@
+package school;
+
+import application.Application;
+import application.*;
+import people.Candidate;
+import utilities.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +23,7 @@ public class School {
     }
 
     public void listApplications() {
+        System.out.println("List of the candidates (all):");
         for (Application application : applications) {
             System.out.println(application);
         }
@@ -26,12 +34,12 @@ public class School {
         for (Application application : applications) {
             if (application.getStatus() == ApplicationStatus.ACCEPTED) {
                 Candidate candidate = application.getCandidate();
-                System.out.println(candidate.getFirstName() + " " + candidate.getLastName());
+                System.out.println(candidate.getFullName());
             }
         }
     }
 
-    public void filterCandidatesByScore(int threshold) {
+    public void printCandidatesByScore(int threshold) {
         System.out.println("\nCandidates with at least " + threshold + " points:");
         for (Candidate candidate : candidates) {
             int totalScore = 0;
@@ -39,18 +47,11 @@ public class School {
                 totalScore += score.getPoints();
             }
             if (totalScore >= threshold) {
-                System.out.println(candidate.getFirstName() + " " + candidate.getLastName() + " - Total Score: " + totalScore);
+                System.out.println(candidate.getFullName() + " - Total Score: " + totalScore);
             }
         }
     }
-    public void viewApplicationHistory() {
-        System.out.println("\nApplication History:");
-        for (Application application : applications) {
-            System.out.println("Candidate: " + application.getCandidate().getFirstName() + " " + application.getCandidate().getLastName());
-            System.out.println("Status History: " + application.getStatusHistory());
-            System.out.println("------------------------");
-        }
-    }
+
     public List<Candidate> getCandidates() {
         return candidates;
     }
@@ -66,4 +67,6 @@ public class School {
     public void setApplications(List<Application> applications) {
         this.applications = applications;
     }
+
+
 }

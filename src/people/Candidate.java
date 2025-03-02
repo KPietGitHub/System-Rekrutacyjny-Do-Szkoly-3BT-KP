@@ -1,40 +1,33 @@
+package people;
+
 import java.util.ArrayList;
 import java.util.List;
+import school.Course;
+import utilities.Score;
 
-public class Candidate {
-    private String firstName;
-    private String lastName;
+public class Candidate extends Person {
     private int age;
     private Course course;
     private List<Score> scores;
 
     public Candidate(String firstName, String lastName, int age, Course course) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        super(firstName, lastName);
         this.age = age;
         this.course = course;
         this.scores = new ArrayList<>();
     }
 
-    public void addScore(String criterion, int points) {
-        scores.add(new Score(criterion, points));
+    public void addScore(String subject, int points) {
+        scores.add(new Score(subject, points));
     }
 
-    public String getFirstName() {
-        return firstName;
+
+
+    @Override
+    public String getDetails() {
+        return "Candidate: " + getFullName() + ", Age: " + age + ", Course: " + course;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public int getAge() {
         return age;
@@ -58,10 +51,5 @@ public class Candidate {
 
     public void setScores(List<Score> scores) {
         this.scores = scores;
-    }
-
-    @Override
-    public String toString() {
-        return "Candidate: " + firstName + " " + lastName + ", Age: " + age + ", Course: " + course;
     }
 }
