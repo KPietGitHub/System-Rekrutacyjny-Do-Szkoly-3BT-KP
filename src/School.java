@@ -32,6 +32,18 @@ public class School {
         }
     }
 
+    public void filterCandidatesByScore(int threshold) {
+        System.out.println("\nCandidates with at least " + threshold + " points:");
+        for (Candidate candidate : candidates) {
+            int totalScore = 0;
+            for (Score score : candidate.getScores()) {
+                totalScore += score.getPoints();
+            }
+            if (totalScore >= threshold) {
+                System.out.println(candidate.getFirstName() + " " + candidate.getLastName() + " - Total Score: " + totalScore);
+            }
+        }
+    }
     public List<Candidate> getCandidates() {
         return candidates;
     }
