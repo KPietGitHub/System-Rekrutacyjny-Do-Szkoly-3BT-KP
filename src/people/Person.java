@@ -9,9 +9,7 @@ abstract class Person {
         this.lastName = lastName;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
+    public abstract String getFullName();
 
     public abstract String getDetails();
 }

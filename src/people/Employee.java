@@ -16,9 +16,16 @@ public class Employee extends Person {
     }
 
     @Override
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    @Override
     public String getDetails() {
         return "Employee: " + getFullName() + ", Position: " + position;
     }
+
+
 
     public String getPosition() {
         return position;

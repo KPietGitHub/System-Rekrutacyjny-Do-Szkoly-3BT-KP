@@ -22,7 +22,10 @@ public class Candidate extends Person {
     }
 
 
-
+    @Override
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
     @Override
     public String getDetails() {
         return "Candidate: " + getFullName() + ", Age: " + age + ", Course: " + course;
