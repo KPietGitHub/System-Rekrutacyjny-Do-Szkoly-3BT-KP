@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
+    private static int acceptedStudentsCount = 0;
     private List<Candidate> candidates;
     private List<Application> applications;
 
@@ -52,6 +53,10 @@ public class School {
         }
     }
 
+    public static void incrementAcceptedStudentsCount() {
+        acceptedStudentsCount++;
+    }
+
     public List<Candidate> getCandidates() {
         return candidates;
     }
@@ -68,5 +73,7 @@ public class School {
         this.applications = applications;
     }
 
-
+    public static int getAcceptedStudentsCount() {
+        return acceptedStudentsCount;
+    }
 }

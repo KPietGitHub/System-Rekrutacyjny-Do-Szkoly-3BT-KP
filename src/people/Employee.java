@@ -2,6 +2,7 @@ package people;
 
 import application.Application;
 import application.ApplicationStatus;
+import school.School;
 
 public class Employee extends Person {
     private String position;
@@ -13,6 +14,10 @@ public class Employee extends Person {
 
     public void reviewApplication(Application application, boolean isAccepted) {
         application.updateStatus(isAccepted ? ApplicationStatus.ACCEPTED : ApplicationStatus.REJECTED);
+
+        if(isAccepted){
+            School.incrementAcceptedStudentsCount();
+        }
     }
 
     @Override
